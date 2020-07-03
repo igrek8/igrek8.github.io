@@ -142,6 +142,16 @@ function App() {
                 }
               )}
             </li>
+            <li>
+              {intl.formatMessage(
+                { id: "sections.codeSamples.personaPage" },
+                {
+                  a: createLink(
+                    "https://github.com/igrek8/demo-password-manager"
+                  ),
+                }
+              )}
+            </li>
           </List>
         </Section>
         <Section>
