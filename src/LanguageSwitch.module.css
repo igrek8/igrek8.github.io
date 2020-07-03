@@ -1,0 +1,19 @@
+.select {
+  appearance: none;
+  background-color: inherit;
+  font-size: inherit;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  line-height: inherit;
+  outline: none;
+  transition: background var(--animation);
+  cursor: pointer;
+  border: 1px solid var(--appbar-button-text);
+  border-radius: 0;
+}
+
+.select:hover,
+.select:focus {
+  color: var(--appbar-btn-hover-text);
+  background-color: var(--appbar-btn-hover-bg);
+}
