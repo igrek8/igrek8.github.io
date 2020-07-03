@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/igrek8.github.io/static/css/main.892a590f.chunk.css",
+    "main.js": "/igrek8.github.io/static/js/main.35bad828.chunk.js",
+    "main.js.map": "/igrek8.github.io/static/js/main.35bad828.chunk.js.map",
+    "runtime-main.js": "/igrek8.github.io/static/js/runtime-main.6639018f.js",
+    "runtime-main.js.map": "/igrek8.github.io/static/js/runtime-main.6639018f.js.map",
+    "static/js/2.9885fed4.chunk.js": "/igrek8.github.io/static/js/2.9885fed4.chunk.js",
+    "static/js/2.9885fed4.chunk.js.map": "/igrek8.github.io/static/js/2.9885fed4.chunk.js.map",
+    "index.html": "/igrek8.github.io/index.html",
+    "precache-manifest.3c74a3f83a48d1264cc1aae33195848a.js": "/igrek8.github.io/precache-manifest.3c74a3f83a48d1264cc1aae33195848a.js",
+    "service-worker.js": "/igrek8.github.io/service-worker.js",
+    "static/css/main.892a590f.chunk.css.map": "/igrek8.github.io/static/css/main.892a590f.chunk.css.map",
+    "static/js/2.9885fed4.chunk.js.LICENSE.txt": "/igrek8.github.io/static/js/2.9885fed4.chunk.js.LICENSE.txt",
+    "static/media/android-chrome-512x512.png": "/igrek8.github.io/static/media/android-chrome-512x512.a15b33af.png",
+    "static/media/card.png": "/igrek8.github.io/static/media/card.e23a3cce.png",
+    "static/media/favicon.ico": "/igrek8.github.io/static/media/favicon.ee20c1dc.ico",
+    "static/media/site.webmanifest": "/igrek8.github.io/static/media/site.685a574c.webmanifest"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6639018f.js",
+    "static/js/2.9885fed4.chunk.js",
+    "static/css/main.892a590f.chunk.css",
+    "static/js/main.35bad828.chunk.js"
+  ]
+}
