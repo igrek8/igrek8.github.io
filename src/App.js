@@ -147,7 +147,7 @@ function App() {
                 { id: "sections.codeSamples.personaPage" },
                 {
                   a: createLink(
-                    "https://github.com/igrek8/demo-password-manager"
+                    "https://github.com/igrek8/igrek8.github.io/tree/develop"
                   ),
                 }
               )}
