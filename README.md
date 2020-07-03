@@ -6,10 +6,28 @@ The page supports English and Russian languages.
 
 ## Theming
 
-The page use CSS variables for themeing and CSS modules to isolate styles.
+The page uses CSS variables for theming and CSS modules for isolating styles.
+
+## Actions
+
+The application supports a query parameter `theme`:
+
+```
+https://igrek8.github.io?theme=light
+https://igrek8.github.io?theme=dark
+```
+
+The application supports language selection based on a route parameter:
+
+```
+https://igrek8.github.io/en
+https://igrek8.github.io/ru
+```
 
 ## Look and feel
 
 ![](./docs/screenshot.png)
 
-Designed & built by Igor &copy;
+Designed and built with ❤️
+
+## Thank you
