@@ -1,0 +1,17 @@
+.paragraph {
+  margin-top: 0;
+  margin-bottom: 0;
+  hyphens: auto;
+}
+
+.paragraph + .paragraph {
+  margin-top: 1rem;
+}
+
+.paragraph > mark {
+  color: inherit;
+  background: none;
+  border-bottom: 2px solid transparent;
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
