@@ -5,7 +5,7 @@
   "locales.en-GB": "English",
   "locales.ru-RU": "Русский",
   "sections.hello.title": "Hello!",
-  "sections.hello.text": "My name is Igor. I am a professional software engineer with a passion for driving products and ideas using technologies and programming. 5+ years of experience in software engineering.",
+  "sections.hello.text": "My name is Igor. I am a professional software engineer with a passion for driving products and ideas using technologies and programming.",
   "sections.aboutMe.title": "About me",
   "sections.aboutMe.stack": "{years}+ years of experience in software engineering. Have been specializing in <mark>JavaScript</mark>, <mark>Node.js</mark>, and <mark>React.js</mark>. A believer in <mark>TypeScript</mark>.",
   "sections.aboutMe.colleaguesSay": "Colleagues highlight my abilities in creativity and product-oriented visioning. Have a critical-thinking attitude towards problems.",
