@@ -3,7 +3,7 @@ import "./GlobalStyles.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import App from "./App";
 import { LocaleProvider } from "./LocaleProvider";
@@ -11,7 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "./ThemeProvider";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter basename=".">
     <ThemeProvider>
       <LocaleProvider>
         <Switch>
@@ -22,7 +22,7 @@ ReactDOM.render(
         </Switch>
       </LocaleProvider>
     </ThemeProvider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById("root")
 );
 
