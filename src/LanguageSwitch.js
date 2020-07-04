@@ -14,6 +14,7 @@ export const LanguageSwitch = () => {
 
   const onChange = (event) => {
     const { value: lang } = event.target;
+    document.documentElement.lang = lang;
     redirect(lang + search);
   };
 

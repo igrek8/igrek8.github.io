@@ -32,9 +32,9 @@ function getLocale() {
 }
 
 export const LocaleProvider = ({ children }) => {
-  const [locale, setLocale] = useState(
-    () => locales[getLocale()] ?? locales["en-GB"]
-  );
+  const [locale, setLocale] = useState(() => {
+    return locales[getLocale()] ?? locales["en-GB"];
+  });
 
   return (
     <IntlContext.Provider value={{ locale, locales, setLocale }}>

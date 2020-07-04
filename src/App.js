@@ -15,7 +15,7 @@ import { List } from "./List";
 import { useLocale } from "./LocaleProvider";
 import { Paragraph } from "./Paragraph";
 import { Section } from "./Section";
-import { ThemeMeta } from "./theme/LightTheme";
+import { ThemeMeta } from "./ThemeMeta";
 import { useTheme } from "./ThemeProvider";
 
 const createLink = (href) => (text) => (
