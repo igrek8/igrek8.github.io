@@ -11,7 +11,7 @@ import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "./ThemeProvider";
 
 ReactDOM.render(
-  <HashRouter basename=".">
+  <HashRouter basename="/">
     <ThemeProvider>
       <LocaleProvider>
         <Switch>
