@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IntlProvider as ReactIntlProvider } from "react-intl";
 
 import enGB from "./i18n/en-GB.json";
@@ -21,23 +21,29 @@ const locales = {
   },
 };
 
-function getLocale() {
-  return (
-    localStorage.getItem("locale") ??
-    navigator.languages?.[0] ??
-    navigator.language ??
-    navigator.userLanguage ??
-    locales["en-GB"]
-  );
-}
+const preferredLocale =
+  localStorage.getItem("locale") ??
+  navigator.languages?.[0] ??
+  navigator.language ??
+  navigator.userLanguage ??
+  "en-GB";
 
 export const LocaleProvider = ({ children }) => {
-  const [locale, setLocale] = useState(() => {
-    return locales[getLocale()] ?? locales["en-GB"];
-  });
+  const [locale, setLocale] = useState(
+    locales[preferredLocale] ?? locales["en-GB"]
+  );
+
+  const [defaultLocale] = useState(
+    locales[preferredLocale] ?? locales["en-GB"]
+  );
+
+  useEffect(() => {
+    document.documentElement.lang = locale.lang;
+    localStorage.setItem("locale", locale.id);
+  }, [locale]);
 
   return (
-    <IntlContext.Provider value={{ locale, locales, setLocale }}>
+    <IntlContext.Provider value={{ locale, locales, setLocale, defaultLocale }}>
       <ReactIntlProvider
         locale={locale.lang}
         messages={locale.messages}

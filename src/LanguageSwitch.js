@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useIntl } from "react-intl";
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 
 import css from "./LanguageSwitch.module.css";
 import { useLocale } from "./LocaleProvider";
 
 export const LanguageSwitch = () => {
   const intl = useIntl();
-  const { push: redirect } = useHistory();
   const { lang } = useParams();
-  const { search } = useLocation();
   const { locales } = useLocale();
+  const { push } = useHistory();
+  const { search } = useLocation();
 
-  const onChange = (event) => {
-    const { value: lang } = event.target;
-    document.documentElement.lang = lang;
-    redirect(lang + search);
-  };
+  const onChange = useCallback(
+    (event) => {
+      const { value: lang } = event.target;
+      push({ pathname: lang, search });
+    },
+    [push, search]
+  );
 
   return (
     <select className={css.select} onChange={onChange} value={lang}>

@@ -1,6 +1,7 @@
 import cn from "classnames";
 import React from "react";
 import { useIntl } from "react-intl";
+import { Route } from "react-router-dom";
 
 import css from "./AppBar.module.css";
 import { Container } from "./Container";
@@ -15,7 +16,9 @@ export const AppBar = () => {
       <nav className={css.nav}>
         <ul className={css.list}>
           <li className={cn(css.listItem)}>
-            <LanguageSwitch />
+            <Route path="/:lang">
+              <LanguageSwitch />
+            </Route>
           </li>
           <li className={cn(css.listItem, css.pushRight)}>
             <a className={css.button} href="mailto:i.korchagin@async.fun">

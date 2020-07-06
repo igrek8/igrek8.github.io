@@ -1,40 +1,74 @@
-import React, { useContext, useState } from "react";
-import { Helmet } from "react-helmet";
+import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+
+import darkThemeAndroidChrome_192x192 from "./themes/dark/android-chrome-192x192.png";
+import darkThemeAndroidChrome_512x512 from "./themes/dark/android-chrome-512x512.png";
+import darkThemeAppleTouchIcon from "./themes/dark/apple-touch-icon.png";
+import darkThemeFavicon_16x16 from "./themes/dark/favicon-16x16.png";
+import darkThemeFavicon_32x32 from "./themes/dark/favicon-32x32.png";
+import darkThemeFavicon from "./themes/dark/favicon.ico";
+import lightThemeAndroidChrome_192x192 from "./themes/light/android-chrome-192x192.png";
+import lightThemeAndroidChrome_512x512 from "./themes/light/android-chrome-512x512.png";
+import lightThemeAppleTouchIcon from "./themes/light/apple-touch-icon.png";
+import lightThemeFavicon_16x16 from "./themes/light/favicon-16x16.png";
+import lightThemeFavicon_32x32 from "./themes/light/favicon-32x32.png";
+import lightThemeFavicon from "./themes/light/favicon.ico";
 
 const themes = {
   light: {
     id: "light",
     themeColor: "#ffffff",
     backgroundColor: "#007acc",
+    appleTouchIcon: lightThemeAppleTouchIcon,
+    favicon_32x32: lightThemeFavicon_32x32,
+    favicon_16x16: lightThemeFavicon_16x16,
+    favicon: lightThemeFavicon,
+    androidChrome_192x192: lightThemeAndroidChrome_192x192,
+    androidChrome_512x512: lightThemeAndroidChrome_512x512,
+    safariColor: "default",
   },
   dark: {
     id: "dark",
     themeColor: "#323330",
     backgroundColor: "#f0db4f",
+    appleTouchIcon: darkThemeAppleTouchIcon,
+    favicon_32x32: darkThemeFavicon_32x32,
+    favicon_16x16: darkThemeFavicon_16x16,
+    favicon: darkThemeFavicon,
+    androidChrome_192x192: darkThemeAndroidChrome_192x192,
+    androidChrome_512x512: darkThemeAndroidChrome_512x512,
+    safariColor: "black",
   },
 };
+
+const localStorageKey = "theme";
+const themeCssClass = "theme-";
+
+// # INITIAL LOAD
+const storedThemeId = localStorage.getItem(localStorageKey);
+const themeId = storedThemeId in themes ? storedThemeId : themes.light.id;
+document.body.classList.add(themeCssClass + themeId);
+const bodyStyles = { transition: "background var(--animation)" };
+setTimeout(() => Object.assign(document.body.style, bodyStyles));
+localStorage.setItem(localStorageKey, themeId);
+// # INITIAL LOAD
 
 const ThemeContext = React.createContext(null);
 
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const history = useHistory();
-  const [theme, _setTheme] = useState(() => themes[globalTheme]);
+  const { push } = useHistory();
+  const [theme, setTheme] = useState(() => themes[themeId]);
 
-  const setTheme = (theme) => {
+  useEffect(() => {
     const classes = document.body.classList;
-
-    classes.remove("theme-" + themes.light.id);
-    classes.remove("theme-" + themes.dark.id);
-    classes.add("theme-" + theme.id);
-
-    history.push("?theme=" + theme.id);
-    localStorage.setItem("theme", theme.id);
-
-    _setTheme(theme);
-  };
+    classes.remove(themeCssClass + themes.light.id);
+    classes.remove(themeCssClass + themes.dark.id);
+    classes.add(themeCssClass + theme.id);
+    localStorage.setItem(localStorageKey, theme.id);
+    push("?theme=" + theme.id);
+  }, [theme, push]);
 
   const toggleTheme = () => {
     setTheme(theme === themes.light ? themes.dark : themes.light);
@@ -42,29 +76,7 @@ export const ThemeProvider = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ theme, themes, setTheme, toggleTheme }}>
-      <Helmet>
-        <meta
-          name="theme-color"
-          content={theme === themes.light.id ? "#ffffff" : "#323330"}
-        />
-      </Helmet>
       {children}
     </ThemeContext.Provider>
   );
 };
-
-// Globals
-
-const classes = document.body.classList;
-const persistedTheme = localStorage.getItem("theme");
-const globalTheme = persistedTheme in themes ? persistedTheme : themes.light.id;
-
-localStorage.setItem("theme", globalTheme);
-
-classes.add("theme-" + globalTheme);
-
-function enableAnimations() {
-  document.body.style.transition = "background var(--animation)";
-}
-
-requestAnimationFrame(enableAnimations);

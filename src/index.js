@@ -1,25 +1,29 @@
-import "./Theme.css";
 import "./GlobalStyles.css";
+import "./Theme.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Redirect, Route, Switch } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 
 import App from "./App";
 import { LocaleProvider } from "./LocaleProvider";
+import { LocaleWatcher } from "./LocaleWatcher";
+import { Root } from "./Root";
 import * as serviceWorker from "./serviceWorker";
 import { ThemeProvider } from "./ThemeProvider";
+import { ThemeWatcher } from "./ThemeWatcher";
 
 ReactDOM.render(
   <HashRouter basename="/">
     <ThemeProvider>
+      <ThemeWatcher />
       <LocaleProvider>
-        <Switch>
-          <Route path="/:lang">
-            <App />
-          </Route>
-          <Redirect to="/en" />
-        </Switch>
+        <Route path="/:lang">
+          <LocaleWatcher />
+        </Route>
+        <Root>
+          <App />
+        </Root>
       </LocaleProvider>
     </ThemeProvider>
   </HashRouter>,

@@ -1,8 +1,6 @@
 import cn from "classnames";
-import qs from "qs";
-import React, { useEffect } from "react";
+import React from "react";
 import { useIntl } from "react-intl";
-import { useHistory, useLocation, useParams } from "react-router-dom";
 
 import css from "./App.module.css";
 import { AppBar } from "./AppBar";
@@ -12,11 +10,9 @@ import { Heading } from "./Heading";
 import { Icon } from "./Icon";
 import { Link } from "./Link";
 import { List } from "./List";
-import { useLocale } from "./LocaleProvider";
 import { Paragraph } from "./Paragraph";
 import { Section } from "./Section";
 import { ThemeMeta } from "./ThemeMeta";
-import { useTheme } from "./ThemeProvider";
 
 const createLink = (href) => (text) => (
   <Link component="a" href={href} target="_blank" rel="noopener noreferrer">
@@ -30,27 +26,6 @@ const mark = (text) => <mark>{text}</mark>;
 
 function App() {
   const intl = useIntl();
-  const { themes, setTheme } = useTheme();
-  const { locales, setLocale } = useLocale();
-  const { lang } = useParams();
-  const { push: redirect } = useHistory();
-  const { search } = useLocation();
-
-  const { theme: themeId } = qs.parse(search, {
-    ignoreQueryPrefix: true,
-  });
-
-  useEffect(() => {
-    const matchLang = (locale) => locale.lang === lang;
-    const locale = Object.values(locales).find(matchLang);
-    if (locale) return setLocale(locale);
-    return redirect("/");
-  }, [redirect, lang, locales, setLocale]);
-
-  useEffect(() => {
-    const theme = themes[themeId];
-    if (theme) setTheme(theme);
-  }, [themeId, themes, setTheme]);
 
   return (
     <>

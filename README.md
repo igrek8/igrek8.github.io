@@ -1,8 +1,4 @@
-# [Personal GitHub Page](https://igrek8.github.io/)
-
-## Internationalization and localization
-
-The page supports English and Russian languages.
+# [Personal GitHub Page](https://async.fun/)
 
 ## Theming
 
@@ -13,16 +9,22 @@ The page uses CSS variables for theming and CSS modules for isolating styles.
 The application supports a query parameter `theme`:
 
 ```
-https://igrek8.github.io?theme=light
-https://igrek8.github.io?theme=dark
+https://async.fun?/#/en?theme=light
+https://async.fun?/#/en?theme=dark
 ```
 
-The application supports language selection based on a route parameter:
+## Internationalization and localization
+
+The application supports language selection based on a route parameter.
 
 ```
-https://igrek8.github.io/en
-https://igrek8.github.io/ru
+https://async.fun/#/en
+https://async.fun/#/ru
 ```
+
+## Rich mobile app
+
+![](./docs/responsive.png)
 
 ## Look and feel
 
