@@ -7,7 +7,7 @@ import { useTheme } from "./ThemeProvider";
 export const ThemeWatcher = ({ children }) => {
   const { search } = useLocation();
   const { themes, setTheme } = useTheme();
-  const { theme: themeId } = qs.parse(search, { ignoreQueryPrefix: true });
+  const { theme: themeId } = qs.parse(search.substr(1));
 
   useEffect(() => {
     const theme = themes[themeId];
