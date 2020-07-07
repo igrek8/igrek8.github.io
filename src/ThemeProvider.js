@@ -1,3 +1,4 @@
+import qs from "querystring";
 import React, { useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -44,14 +45,29 @@ const themes = {
 const localStorageKey = "theme";
 const themeCssClass = "theme-";
 
-// # INITIAL LOAD
-const storedThemeId = localStorage.getItem(localStorageKey);
-const themeId = storedThemeId in themes ? storedThemeId : themes.light.id;
-document.body.classList.add(themeCssClass + themeId);
-const bodyStyles = { transition: "background var(--animation)" };
-setTimeout(() => Object.assign(document.body.style, bodyStyles));
-localStorage.setItem(localStorageKey, themeId);
-// # INITIAL LOAD
+function parseSearch() {
+  const search = window.location.hash.split("?").slice(1).join("?");
+  return qs.parse(search);
+}
+
+function applyTheme(themeId) {
+  document.body.classList.add(themeCssClass + themeId);
+  const bodyStyles = { transition: "background var(--animation)" };
+  requestAnimationFrame(() => Object.assign(document.body.style, bodyStyles));
+  localStorage.setItem(localStorageKey, themeId);
+}
+
+function getDefaultThemeId() {
+  const { theme: requestedThemeId } = parseSearch();
+  if (requestedThemeId in themes) return requestedThemeId;
+  const storedThemeId = localStorage.getItem(localStorageKey);
+  if (storedThemeId in themes) return storedThemeId;
+  return themes.light.id;
+}
+
+const defaultThemeId = getDefaultThemeId();
+
+applyTheme(defaultThemeId);
 
 const ThemeContext = React.createContext(null);
 
@@ -59,7 +75,7 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
   const { push } = useHistory();
-  const [theme, setTheme] = useState(() => themes[themeId]);
+  const [theme, setTheme] = useState(() => themes[defaultThemeId]);
 
   useEffect(() => {
     const classes = document.body.classList;
