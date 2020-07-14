@@ -28,7 +28,6 @@ const locales = {
 };
 
 const preferredLocale =
-  localStorage.getItem("locale") ??
   navigator.languages?.[0] ??
   navigator.language ??
   navigator.userLanguage ??
@@ -45,7 +44,6 @@ export const LocaleProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.lang = locale.lang;
-    localStorage.setItem("locale", locale.id);
   }, [locale]);
 
   return (

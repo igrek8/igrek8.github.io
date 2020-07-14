@@ -1,5 +1,5 @@
 import qs from "querystring";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 
 import darkThemeAndroidChrome_192x192 from "./themes/dark/android-chrome-192x192.png";
@@ -42,7 +42,21 @@ const themes = {
   },
 };
 
-const localStorageKey = "theme";
+function isDark() {
+  const lastEvening = new Date();
+  lastEvening.setHours(18, 0, 0, 0);
+  lastEvening.setDate(lastEvening.getDate() - 1);
+
+  const nextMorning = new Date();
+  nextMorning.setMilliseconds(0);
+  nextMorning.setHours(4, 0, 0, 0);
+  nextMorning.setDate(nextMorning.getDate() + 1);
+
+  const now = new Date();
+
+  return lastEvening <= now && now <= nextMorning;
+}
+
 const themeCssClass = "theme-";
 
 function parseSearch() {
@@ -52,17 +66,15 @@ function parseSearch() {
 
 function applyTheme(themeId) {
   document.body.classList.add(themeCssClass + themeId);
-  const bodyStyles = { transition: "background var(--animation)" };
-  requestAnimationFrame(() => Object.assign(document.body.style, bodyStyles));
-  localStorage.setItem(localStorageKey, themeId);
+  setTimeout(() => {
+    document.body.style.transition = "background var(--animation)";
+  }, 10);
 }
 
 function getDefaultThemeId() {
   const { theme: requestedThemeId } = parseSearch();
   if (requestedThemeId in themes) return requestedThemeId;
-  const storedThemeId = localStorage.getItem(localStorageKey);
-  if (storedThemeId in themes) return storedThemeId;
-  return themes.light.id;
+  return isDark() ? themes.dark.id : themes.light.id;
 }
 
 const defaultThemeId = getDefaultThemeId();
@@ -82,13 +94,13 @@ export const ThemeProvider = ({ children }) => {
     classes.remove(themeCssClass + themes.light.id);
     classes.remove(themeCssClass + themes.dark.id);
     classes.add(themeCssClass + theme.id);
-    localStorage.setItem(localStorageKey, theme.id);
-    push("?theme=" + theme.id);
-  }, [theme, push]);
+  }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme(theme === themes.light ? themes.dark : themes.light);
-  };
+  const toggleTheme = useCallback(() => {
+    const nextTheme = theme === themes.light ? themes.dark : themes.light;
+    push("?theme=" + nextTheme.id);
+    setTheme(nextTheme);
+  }, [theme, setTheme, push]);
 
   return (
     <ThemeContext.Provider value={{ theme, themes, setTheme, toggleTheme }}>

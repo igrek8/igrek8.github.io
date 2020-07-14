@@ -9,8 +9,8 @@ export const ThemeMeta = ({ children }) => {
   const { theme } = useTheme();
 
   const manifest = {
-    name: intl.formatMessage({ id: "app.title" }),
-    short_name: intl.formatMessage({ id: "app.title" }),
+    name: intl.formatMessage({ id: "app" }),
+    short_name: intl.formatMessage({ id: "app" }),
     icons: [
       {
         src: theme.androidChrome_192x192,
