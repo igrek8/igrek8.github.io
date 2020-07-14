@@ -3,6 +3,7 @@ import { IntlProvider as ReactIntlProvider } from "react-intl";
 
 import enGB from "./i18n/en-GB.json";
 import ruRU from "./i18n/ru-RU.json";
+import deDE from "./i18n/de-DE.json";
 
 const IntlContext = React.createContext(null);
 
@@ -18,6 +19,11 @@ const locales = {
     id: "ru-RU",
     lang: "ru",
     messages: ruRU,
+  },
+  "de-DE": {
+    id: "de-DE",
+    lang: "de",
+    messages: deDE,
   },
 };
 

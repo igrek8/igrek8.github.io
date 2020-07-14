@@ -21,7 +21,11 @@ export const AppBar = () => {
             </Route>
           </li>
           <li className={cn(css.listItem, css.pushRight)}>
-            <a className={css.button} href="mailto:i.korchagin@async.fun">
+            <a
+              className={css.button}
+              href="mailto:i.korchagin@async.fun"
+              title={intl.formatMessage({ id: "email" })}
+            >
               <Icon icon="mail" className={css.buttonIcon} />
               <span>{intl.formatMessage({ id: "email" })}</span>
             </a>

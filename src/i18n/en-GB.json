@@ -1,9 +1,8 @@
 {
-  "app.title": "Igor Korchagin",
-  "app.description": "5+ years of experience in software engineering. Has been specializing in JavaScript, Node.js and React.js. A believer of TypeScript. Express your interest and learn more about his career and personality.",
   "page": "Igor Korchagin / Software Engineer",
   "locales.en-GB": "English",
   "locales.ru-RU": "Русский",
+  "locales.de-DE": "Deutch",
   "sections.hello.title": "Hello!",
   "sections.hello.text": "My name is Igor. I am a professional software engineer with a passion for driving products and ideas using technologies and programming.",
   "sections.aboutMe.title": "About me",

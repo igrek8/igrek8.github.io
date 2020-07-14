@@ -5,9 +5,13 @@ import { Icon } from "./Icon";
 import css from "./SocialLinks.module.css";
 
 const socialLinks = [
-  { link: "https://telegram.me/igrek8/", id: "telegram" },
-  { link: "https://github.com/igrek8/", id: "github" },
-  { link: "https://linkedin.com/in/ikorchagin/", id: "linkedin" },
+  { link: "https://telegram.me/igrek8/", id: "telegram", title: "Telegram" },
+  { link: "https://github.com/igrek8/", id: "github", title: "GitHub" },
+  {
+    link: "https://linkedin.com/in/ikorchagin/",
+    id: "linkedin",
+    title: "LinkedIn",
+  },
 ];
 
 export const SocialLinks = ({ className, children }) => {
@@ -18,6 +22,7 @@ export const SocialLinks = ({ className, children }) => {
           <a
             href={link.link}
             className={css.link}
+            title={link.title}
             target="_blank"
             rel="noopener noreferrer"
           >
