@@ -68,7 +68,7 @@ function applyTheme(themeId) {
   document.body.classList.add(themeCssClass + themeId);
   setTimeout(() => {
     document.body.style.transition = "background var(--animation)";
-  }, 10);
+  });
 }
 
 function getDefaultThemeId() {

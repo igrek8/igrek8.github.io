@@ -27,7 +27,17 @@ const locales = {
   },
 };
 
+function getLocale() {
+  const match = window.location.hash.match(/#\/([a-z]{2})/);
+  if (!match) return null;
+  const [, lang] = match;
+  const localeMatcher = (locale) => locale.lang === lang;
+  const locale = Object.values(locales).find(localeMatcher);
+  if (locale) return locale.id;
+}
+
 const preferredLocale =
+  getLocale() ??
   navigator.languages?.[0] ??
   navigator.language ??
   navigator.userLanguage ??
