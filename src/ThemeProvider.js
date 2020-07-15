@@ -61,9 +61,10 @@ function applyTheme(themeId) {
 
 function getDefaultThemeId() {
   const match = window.location.hash.match(/theme=([^&$]+)/);
-  if (!match) return null;
-  const [, requestedThemeId] = match;
-  if (requestedThemeId in themes) return requestedThemeId;
+  if (match) {
+    const [, requestedThemeId] = match;
+    if (requestedThemeId in themes) return requestedThemeId;
+  }
   return isDark() ? themes.dark.id : themes.light.id;
 }
 
