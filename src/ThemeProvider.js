@@ -1,5 +1,4 @@
-import qs from "querystring";
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import darkThemeAndroidChrome_192x192 from "./themes/dark/android-chrome-192x192.png";
@@ -43,26 +42,15 @@ const themes = {
 };
 
 function isDark() {
-  const lastEvening = new Date();
-  lastEvening.setHours(18, 0, 0, 0);
-  lastEvening.setDate(lastEvening.getDate() - 1);
-
-  const nextMorning = new Date();
-  nextMorning.setMilliseconds(0);
-  nextMorning.setHours(4, 0, 0, 0);
-  nextMorning.setDate(nextMorning.getDate() + 1);
-
   const now = new Date();
-
-  return lastEvening <= now && now <= nextMorning;
+  const currentEvening = new Date(now);
+  currentEvening.setHours(17, 0, 0, 0);
+  const currentMorning = new Date(now);
+  currentMorning.setHours(5, 0, 0, 0);
+  return currentEvening <= now || now <= currentMorning;
 }
 
 const themeCssClass = "theme-";
-
-function parseSearch() {
-  const search = window.location.hash.split("?").slice(1).join("?");
-  return qs.parse(search);
-}
 
 function applyTheme(themeId) {
   document.body.classList.add(themeCssClass + themeId);
@@ -72,7 +60,9 @@ function applyTheme(themeId) {
 }
 
 function getDefaultThemeId() {
-  const { theme: requestedThemeId } = parseSearch();
+  const match = window.location.hash.match(/theme=([^&$]+)/);
+  if (!match) return null;
+  const [, requestedThemeId] = match;
   if (requestedThemeId in themes) return requestedThemeId;
   return isDark() ? themes.dark.id : themes.light.id;
 }
