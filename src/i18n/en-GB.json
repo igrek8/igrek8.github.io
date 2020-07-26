@@ -20,7 +20,7 @@
   "sections.getInTouch.title": "Get in touch with me",
   "sections.getInTouch.text": "Are you looking for somebody to join your team? Send me a message at <a>i.korchagin@async.fun</a> and I will get back to you as soon as possible.",
   "sections.thankyou.title": "Thank you",
-  "sections.thankyou.text": "Thank you for visiting this page.<br></br>Wish you the best of luck {icon}.",
+  "sections.thankyou.text": "Thank you for visiting this page {icon}.",
   "theme": "Theme",
   "email": "Email",
   "build": "Build"

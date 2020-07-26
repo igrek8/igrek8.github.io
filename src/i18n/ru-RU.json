@@ -7,7 +7,7 @@
   "sections.hello.title": "Привет!",
   "sections.hello.text": "Меня зовут Игорь. Я профессиональный разработчик. Мне нравится воплощать идеи с помощью технологий и программирования.",
   "sections.aboutMe.title": "Коротко обо мне",
-  "sections.aboutMe.stack": "Имею {years}+ лет опыта в IT. Специализируюсь на <mark>JavaScript</mark>, <mark>NodeJS</mark> и <mark>ReactJS</mark>. Нравится <mark>TypeScript</mark>.",
+  "sections.aboutMe.stack": "{years}+ лет опыта в IT. Специализируюсь в <mark>JavaScript</mark>, <mark>NodeJS</mark> и <mark>ReactJS</mark>. Нравится <mark>TypeScript</mark>.",
   "sections.aboutMe.colleaguesSay": "Коллеги подчеркивают мою креативность и продуктовую направленность. В работе считаю важным понимать цели и задачи бизнеса.",
   "sections.aboutMe.personality": "Открытый и объективный человек. Приветствую разные культуры и различия. Стремлюсь к  сотрудничеству и командной работе.",
   "sections.aboutMe.workingAt": "На данный момент работаю в <a>Тинькофф Групп, Россия</a>",
@@ -20,7 +20,7 @@
   "sections.getInTouch.title": "Связаться со мной",
   "sections.getInTouch.text": "Вы ищите специалиста в свою команду? Отправьте мне приглашение по адресу <a>i.korchagin@async.fun</a>. Я отвечу вам как только смогу.",
   "sections.thankyou.title": "Спасибо",
-  "sections.thankyou.text": "Спасибо, что посетили эту страницу.<br></br>Желаю всего наилучшего {icon}.",
+  "sections.thankyou.text": "Спасибо, что посетили эту страницу {icon}.",
   "theme": "Тема",
   "email": "Написать",
   "build": "Версия"
