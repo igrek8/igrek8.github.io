@@ -10,7 +10,7 @@
   "sections.aboutMe.stack": "{years}+ лет опыта в IT. Специализируюсь в <mark>JavaScript</mark>, <mark>NodeJS</mark> и <mark>ReactJS</mark>. Нравится <mark>TypeScript</mark>.",
   "sections.aboutMe.colleaguesSay": "Коллеги подчеркивают мою креативность и продуктовую направленность. В работе считаю важным понимать цели и задачи бизнеса.",
   "sections.aboutMe.personality": "Открытый и объективный человек. Приветствую разные культуры и различия. Стремлюсь к  сотрудничеству и командной работе.",
-  "sections.aboutMe.workingAt": "На данный момент работаю в <a>Тинькофф Групп, Россия</a>",
+  "sections.aboutMe.workingAt": "На данный момент работаю в <a>LemonOne GmbH (Германия)</a>",
   "sections.codeSamples.title": "Тестовые задания",
   "sections.codeSamples.movieSearchApi": "<a>Поиск фильмов</a>: AWS lambda, TypeScript",
   "sections.codeSamples.gitHubApi": "<a>Поиск пользователей</a>: NodeJS, GraphQL",

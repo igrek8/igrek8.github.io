@@ -66,7 +66,7 @@ function App() {
           <Paragraph>
             {intl.formatMessage(
               { id: "sections.aboutMe.workingAt" },
-              { a: createLink("https://tinkoff.ru/") }
+              { a: createLink("https://lemonone.com/") }
             )}
           </Paragraph>
         </Section>

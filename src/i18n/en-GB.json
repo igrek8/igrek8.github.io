@@ -10,7 +10,7 @@
   "sections.aboutMe.stack": "{years}+ years of experience in software engineering. Have been specializing in <mark>JavaScript</mark>, <mark>Node.js</mark>, and <mark>React.js</mark>. A believer in <mark>TypeScript</mark>.",
   "sections.aboutMe.colleaguesSay": "Colleagues highlight my abilities in creativity and product-oriented visioning. Have a critical-thinking attitude towards problems.",
   "sections.aboutMe.personality": "An open and objective individual with an appreciation of each and every culture and difference. Passionate for collaboration and teamwork.",
-  "sections.aboutMe.workingAt": "Currently employed at <a>Tinkoff Group, Russia</a>",
+  "sections.aboutMe.workingAt": "Currently employed by <a>LemonOne GmbH (Germany)</a>",
   "sections.codeSamples.title": "Code samples",
   "sections.codeSamples.movieSearchApi": "<a>Movie Search API</a>: AWS lambda, TypeScript",
   "sections.codeSamples.gitHubApi": "<a>Github User Search API</a>: NodeJS, GraphQL",
