@@ -1,9 +1,9 @@
 {
-  "name": "async.fun",
+  "name": "igrek8.github.io",
   "version": "0.1.26",
-  "author": "Igor Korchagin <i.korchagin@async.fun>",
+  "author": "Igor Korchagin <igor.korchagin8+github@gmail.com>",
   "license": "MIT",
-  "homepage": "http://igrek8.github.io",
+  "homepage": "https://igrek8.github.io",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",

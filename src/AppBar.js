@@ -23,7 +23,7 @@ export const AppBar = () => {
           <li className={cn(css.listItem, css.pushRight)}>
             <a
               className={css.button}
-              href="mailto:i.korchagin@async.fun"
+              href="mailto:igor.korchagin8+github@gmail.com"
               title={intl.formatMessage({ id: "email" })}
             >
               <Icon icon="mail" className={css.buttonIcon} />

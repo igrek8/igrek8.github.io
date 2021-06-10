@@ -138,7 +138,7 @@ function App() {
           <Paragraph>
             {intl.formatMessage(
               { id: "sections.getInTouch.text" },
-              { a: createLink("mailto:i.korchagin@async.fun") }
+              { a: createLink("mailto:igor.korchagin8+github@gmail.com") }
             )}
           </Paragraph>
         </Section>

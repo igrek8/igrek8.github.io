@@ -1,4 +1,4 @@
-# [Personal GitHub Page](https://async.fun/)
+# [Personal GitHub Page](https://igrek8.github.io/)
 
 ## Theming
 
@@ -9,8 +9,8 @@ The page uses CSS variables for theming and CSS modules for isolating styles.
 The application supports a query parameter `theme`:
 
 ```
-https://async.fun?/#/en?theme=light
-https://async.fun?/#/en?theme=dark
+https://igrek8.github.io?/#/en?theme=light
+https://igrek8.github.io?/#/en?theme=dark
 ```
 
 ## Internationalization and localization
@@ -18,8 +18,8 @@ https://async.fun?/#/en?theme=dark
 The application supports language selection based on a route parameter.
 
 ```
-https://async.fun/#/en
-https://async.fun/#/ru
+https://igrek8.github.io/#/en
+https://igrek8.github.io/#/ru
 ```
 
 ## Rich mobile app
